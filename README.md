@@ -1,6 +1,6 @@
 # A simple OAuth
 
-## summary
+## Summary
 
 This is just a simple app to practice Open Authentication 2.0 (OAuth 2.0) on the backend. This is written in JavaScript using Node.js and an Express server, a hosted Mongo database, Passport.js, and OAuth. For now this app is set up for Google, but might expand in the future to include Facebook, Twitter, etc.
 
