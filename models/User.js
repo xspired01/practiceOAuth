@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   googleID: {
     type: String,
-    required: true
+    required: false
   },
   firstName: {
     type: String

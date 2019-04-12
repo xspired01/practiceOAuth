@@ -28,9 +28,7 @@ mongoose.Promise = global.Promise;
 
 // Connect to Mongoose
 mongoose
-  .connect(keys.mongoURI, {
-    useMongoClient: true
-  })
+  .connect(keys.mongoURI, { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected!"))
   .catch(err => console.log(err));
 
@@ -49,8 +47,8 @@ app.use(
 
 // bodyParser settings
 // urlencoded true means go deep & flatten nested objects. false means go shallow, only flatten top level
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 // passport settings
 app.use(passport.initialize());
@@ -62,11 +60,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// Auth for Routes
+// Auth Routes
 app.use("/auth", auth);
 
 app.get("/", (req, res) => {
   res.send("GET route works for HOME");
+});
+
+app.get("/dashboard", (req, res) => {
+  res.send("This is the DASHBOARD ROUTE. Simple OAuth works");
 });
 
 // run server, actually tell server to monitor port for connections
